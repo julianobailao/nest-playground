@@ -1,0 +1,19 @@
+<html>
+    <header>
+
+    </header>
+    <body>
+        <p>teste</p> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+        <script>
+            var server = io.connect('http://localhost:3000');            
+            server.on("connect", (socket) => {                
+                server.emit('message', 'teste');
+            });
+
+            server.on('teste', function(data) {
+                console.log(data);
+            });
+        </script>
+    </body>
+</html>

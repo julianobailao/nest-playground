@@ -1,0 +1,33 @@
+version: '2'
+services:
+  # postgres:
+  #   image: postgres:10.3
+  #   container_name: chat-cna-postgres
+  #   volumes:
+  #     - ./volumes/postgree:/var/lib/postgresql/data
+  #   ports:
+  #     - 5433:5432
+  #   environment:
+  #     - POSTGRES_PASSWORD=chat-cna
+  #     - POSTGRES_DB=chat-cna
+  #     - POSTGRES_USER=chat-cna
+  redis:
+    image: redis:4.0
+    container_name: chat-cna-redis
+    # command: --appendonly yes
+    volumes:
+      - ./volumes/redis:/data
+    ports:
+      - 6379:6379
+  # app:
+  #   image: node:carbon
+  #   container_name: chat-cna-app
+  #   working_dir: /usr/src/app
+  #   command: npm run dev --host=0.0.0.0
+  #   volumes:
+  #     - .:/usr/src/app
+  #   ports:
+  #     - 3000:3000
+  #   links:
+  #     - postgres
+  #     - redis
